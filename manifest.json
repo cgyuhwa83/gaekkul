@@ -1,0 +1,16 @@
+{
+  "name": "개꿀템 핫딜 가격분석실",
+  "short_name": "개꿀템",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121316",
+  "theme_color": "#1a1c20",
+  "icons": [
+    {
+      "src": "/app_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
