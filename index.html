@@ -7,9 +7,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="개꿀템">
-  <link rel="manifest" href="./manifest.json">
-  <link rel="apple-touch-icon" href="./app_icon_512.png">
-  <link rel="icon" href="./app_icon_512.png">
+  <link rel="manifest" href="https://cgyuhwa83.github.io/gaekkul/manifest.json">
+  <link rel="apple-touch-icon" href="https://cgyuhwa83.github.io/gaekkul/app_icon_192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://cgyuhwa83.github.io/gaekkul/app_icon_192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://cgyuhwa83.github.io/gaekkul/app_icon_512.png">
   <title>개꿀템 핫딜 가격분석실</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -1645,6 +1646,12 @@
       if (banner) banner.style.display = 'flex';
     });
 
+    window.addEventListener('appinstalled', () => {
+      deferredPrompt = null;
+      const banner = document.getElementById('installBanner');
+      if (banner) banner.style.display = 'none';
+    });
+
     function openPwaModal() {
       const modal = document.getElementById('pwaModal');
       if (modal) modal.style.display = 'flex';
@@ -1660,6 +1667,14 @@
     }
 
     function handleInstallClick() {
+      const ua = navigator.userAgent.toLowerCase();
+      const isKakao = ua.includes('kakaotalk');
+
+      if (isKakao) {
+        location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href);
+        return;
+      }
+
       if (deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
@@ -1676,7 +1691,9 @@
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
+        navigator.serviceWorker.register('https://cgyuhwa83.github.io/gaekkul/sw.js', {
+          scope: 'https://cgyuhwa83.github.io/gaekkul/'
+        }).catch(() => {});
       });
     }
   </script>

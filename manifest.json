@@ -1,13 +1,23 @@
 {
   "name": "개꿀템 핫딜 가격분석실",
   "short_name": "개꿀템",
-  "start_url": "/",
+  "id": "https://cgyuhwa83.github.io/gaekkul/",
+  "start_url": "https://cgyuhwa83.github.io/gaekkul/",
+  "scope": "https://cgyuhwa83.github.io/gaekkul/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#121316",
   "theme_color": "#1a1c20",
+  "description": "실시간 핫딜 모아보기 및 가격분석",
   "icons": [
     {
-      "src": "/app_icon_512.png",
+      "src": "https://cgyuhwa83.github.io/gaekkul/app_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cgyuhwa83.github.io/gaekkul/app_icon_512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
